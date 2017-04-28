@@ -2,7 +2,7 @@
 var lock = require('m-process-lock');
 
 lock.setOption({"host": "172.30.1.252", "port": 6379});
-lock.addLock('stock');
+lock.addLock('data');
 
 setInterval(() => {
     lock.enter('data', (success) => {
