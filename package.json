@@ -1,0 +1,15 @@
+{
+  "name": "m-process-lock",
+  "description": "A module for processing synchronization between two clusters in a clustered state",
+  "author": "Mukeun Kim",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/mukeunkim/m-process-lock.git"
+  },
+  "dependencies": {
+    "redis": "^2.7.1"
+  },
+  "scripts": {
+  },
+  "version": "0.0.1"
+}
