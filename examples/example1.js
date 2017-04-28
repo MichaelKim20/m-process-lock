@@ -1,5 +1,5 @@
 
-var lock = require('m-process-lock');
+var lock = require('../');
 
 lock.setOption({"host": "172.30.1.252", "port": 6379});
 lock.addLock('data');
