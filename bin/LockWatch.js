@@ -6,11 +6,13 @@ class LockWatch {
         this.key = '$' + key;
         this.key_enter = '$' + key + '_enter';
         this.key_watch = '$' + key + '_watch';
+        this.started = false;
 
         this.start();
     }
 
     start() {
+        this.started = true;
         this.client.incr(this.key_watch, (err, data) => {
             var tick;
             if (data == null) tick = 0;
@@ -45,10 +47,10 @@ class LockWatch {
                                 }
                             }
                         }
-                        setTimeout(go_watch, 100);
+                        if (this.started) setTimeout(go_watch, 100);
                     });
                 } else {
-                    setTimeout(go_watch, 100);
+                    if (this.started) setTimeout(go_watch, 100);
                 }
             };
             go_watch();
@@ -56,7 +58,7 @@ class LockWatch {
     };
 
     stop() {
-        clearInterval(this.intervalID);
+        this.started = false;
     };
 
 }
